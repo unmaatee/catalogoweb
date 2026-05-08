@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNMAATEE | Catálogo Online</title>
+  <meta name="description" content="Catálogo online modular de mates, termos, bombillas, combos y accesorios de UNMAATEE." />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+  <div class="topbar">· Envíos y retiros a coordinar · Catálogo UNMAATEE</div>
+
+  <header class="header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <div class="brand-mark"><img src="assets/images/logo-unmaatee.png" alt="Logo UNMAATEE" /></div>
+        <div class="brand-name">
+          <strong>UNMAATEE</strong>
+          <span>mates · termos · accesorios</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#productos">Productos</a>
+        <a href="#combos">Combos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <button class="cart-button" id="openCart" type="button">
+        🛒 Mi carrito <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="section hero">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">🧉 Nuevo catálogo online</span>
+          <h1>Elegí tu mate ideal.</h1>
+          <p>
+            Bienvenido a UNMAATEE: elegí tu compañero de todos los días y descubrí el mate que va con tu rutina, tus pausas y tus mejores momentos.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#productos">Ver productos</a>
+            <button class="btn btn-outline" type="button" id="heroCartBtn">Abrir carrito</button>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="mini-panel">
+            <h2>Promo destacada</h2>
+            <p>
+              Termo media manija + mate camionero $50.000
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benefits" aria-label="Beneficios de compra">
+      <article class="benefit">
+        <strong>🚚 Envíos y retiros</strong>
+        <span>Coordinamos la entrega según tu zona.</span>
+      </article>
+      <article class="benefit benefit-button" role="button" tabindex="0" aria-label="Ver combo destacado" data-combo-button>
+        <strong>🎁 Combos</strong>
+        <span>Armá packs de mate, bombilla y accesorios.</span>
+      </article>
+    </section>
+
+    <section class="section" id="productos">
+      <div class="heading-row">
+        <div>
+          <h2>Catálogo completo UNMAATEE</h2>
+          <p>Productos cargados desde el catálogo actual: termos, mates, bombillas, yerberas, accesorios y termeras. Filtrá, buscá y armá tu pedido por WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input class="search-box" id="searchInput" type="search" placeholder="Buscar mate, bombilla, termo, termera..." aria-label="Buscar producto" />
+        <button class="btn btn-soft" id="clearFilters" type="button">Limpiar</button>
+      </div>
+
+      <div class="category-pills" id="categoryPills"></div>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="section promo-band" id="combos" role="button" tabindex="0" aria-label="Ver combo destacado" data-combo-button>
+      <div>
+        <h2>Combo perfecto para todos los días.</h2>
+        <p>
+          Termo media manija + mate camionero (el más confiable) + bombilla cincelada a solo <strong>$55.000</strong>.
+        </p>
+      </div>
+      <span class="btn btn-primary">Ver combo</span>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-inner">
+      <div>
+        <h3>UNMAATEE</h3>
+        <p>
+          Elegí tu compañero de todos los días: mates, termos y accesorios pensados para acompañar tus pausas, tus charlas y esos momentos que se disfrutan mejor con un buen mate.
+        </p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>WhatsApp: +54 9 362 529-8235</li>
+          <li>Instagram: @unmaatee</li>
+          <li>Resistencia, Chaco</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compra segura</h4>
+        <ul>
+          <li>Pedidos por WhatsApp</li>
+          <li>Pago a coordinar</li>
+          <li>Envíos y retiros a coordinar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> UNMAATEE. Todos los derechos reservados.</div>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Carrito de compras</h2>
+      <button class="icon-btn" id="closeCart" type="button" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="total-row">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" type="button">Enviar pedido por WhatsApp</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast">Producto agregado al carrito</div>
+
+
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-card" role="dialog" aria-modal="true" aria-label="Imagen ampliada del producto">
+      <button class="image-modal-close" id="closeImageModal" type="button" aria-label="Cerrar imagen ampliada">×</button>
+      <div class="image-modal-media">
+        <img id="modalProductImage" src="" alt="" />
+      </div>
+      <div class="image-modal-thumbs" id="modalProductThumbs" aria-label="Más imágenes del producto"></div>
+      <div class="image-modal-info">
+        <div>
+          <h3 id="modalProductName"></h3>
+          <p id="modalProductPrice"></p>
+          <p class="image-modal-description" id="modalProductDesc"></p>
+        </div>
+        <button class="primary-btn" id="modalAddProduct" type="button">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
